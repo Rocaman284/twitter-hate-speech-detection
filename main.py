@@ -54,7 +54,7 @@ st.markdown("**You may not promote violence against or directly attack or threat
 completed = False
 sentence = st.text_input("Enter a hashtag, username, to scrap tweet ")
 
-if st.button("Scrap") :
+if st.button("Analyse") :
     print("-------------------------------------")
     c.Search =sentence
     c.StoreObject = True
