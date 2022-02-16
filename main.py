@@ -15,8 +15,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 import helper_functions as hf
 # sentiment analysis
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-import twint
-c = twint.Config()
+#import twint
+#c = twint.Config()
 import pandas as pd
 import os
 from wordcloud import WordCloud
