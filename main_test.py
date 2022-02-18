@@ -16,10 +16,6 @@ import helper_functions as hf
 # sentiment analysis
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import pandas as pd
-import os
-from wordcloud import WordCloud
-# import only system from os
-from os import system, name
 
 ##
 ### custom cmponents
@@ -29,15 +25,6 @@ def box_danger(text):
 def box_sucess(text):
     st.markdown(f'<h2 style="background-color:#00a86b;color:#fff;font-size:20px;border-radius:10px;padding:20px;text-align:center">{text}</h2>', unsafe_allow_html=True)
 ##
-def clear():
-
-    # for windows
-    if name == 'nt':
-        _ = system('cls')
-
-    # for mac and linux(here, os.name is 'posix')
-    else:
-        _ = system('clear')
 ##
 def tweet_card(text):
      st.markdown(f'<div class="card" style=" box-shadow: 0 4px 8px 0 rgba(0,0,0.2);transition: 0.3s;width: 80%;padding:5%"><div class="container"><p>{text}</p></div></div>', unsafe_allow_html=True) 
@@ -106,6 +93,6 @@ re = model.predict(temp)
 
 if st.button("Analyze") :
     if re[0] == 1 :
-        box_danger("Potential Hate?Offensive")
+        box_danger("Potential Hate/Offensive")
     else :
         box_sucess("Looks Fine.")
