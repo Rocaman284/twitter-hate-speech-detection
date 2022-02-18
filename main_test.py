@@ -15,14 +15,11 @@ from sklearn.feature_extraction.text import CountVectorizer
 import helper_functions as hf
 # sentiment analysis
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-import twint
-c = twint.Config()
 import pandas as pd
 import os
 from wordcloud import WordCloud
 # import only system from os
 from os import system, name
-from textblob import TextBlob
 
 ##
 ### custom cmponents
@@ -105,12 +102,8 @@ else :
         with open('lg_tfidf_model.pkl','rb') as file :
             model = pickle.load(file)
 
-# if os.path.exists(filename):
-#     os.remove(filename)
 re = model.predict(temp)
-Sum = sum(re)
-per = math.floor((Sum/len(re))*100)
-# st.write("Percentage of hate : ", (Sum/len(re))*100)
+
 if st.button("Analyze") :
     if re[0] == 1 :
         box_danger("Potential Hate?Offensive")
